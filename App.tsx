@@ -240,12 +240,30 @@ const App: React.FC = () => {
               {getThemeIcon()}
             </button>
 
+            {/* 全新设计的 "添加" 按钮 */}
             <button
               onClick={() => setIsModalOpen(true)}
-              className="flex-1 md:flex-none bg-zinc-900 text-white dark:bg-white dark:text-black px-6 py-3 rounded-xl font-bold hover:opacity-90 hover:scale-105 active:scale-95 transition-all shadow-lg flex items-center justify-center gap-2"
+              className="
+                group relative 
+                flex-1 md:flex-none 
+                px-8 py-3.5 
+                rounded-2xl 
+                bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-500 
+                text-white font-bold text-base tracking-wide
+                shadow-[0_10px_20px_-10px_rgba(79,70,229,0.5)]
+                hover:shadow-[0_20px_30px_-10px_rgba(79,70,229,0.6)]
+                hover:-translate-y-1 
+                active:scale-95 
+                transition-all duration-300 ease-out
+                overflow-hidden
+                flex items-center justify-center gap-2
+              "
             >
-              <Plus size={18} />
-              <span className="inline">新建</span>
+              {/* Shimmer 光影特效层 */}
+              <div className="absolute top-0 left-[-100%] w-[50%] h-full bg-gradient-to-r from-transparent via-white/30 to-transparent skew-x-[-20deg] group-hover:animate-shimmer pointer-events-none"></div>
+              
+              <Plus size={22} className="stroke-[2.5] group-hover:rotate-90 transition-transform duration-300" />
+              <span>添加新网址</span>
             </button>
           </div>
         </header>

@@ -4,6 +4,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>NexusLink - 智能网址收藏</title>
+    <script>
+      // Polyfill for process.env to prevent "process is not defined" errors in browser environment
+      // This ensures the app doesn't crash if the build tool doesn't automatically inject it.
+      window.process = window.process || { env: {} };
+    </script>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
@@ -19,6 +24,15 @@
             },
             fontFamily: {
               sans: ['Inter', 'system-ui', 'sans-serif'],
+            },
+            animation: {
+              'shimmer': 'shimmer 1.5s infinite',
+            },
+            keyframes: {
+              shimmer: {
+                '0%': { transform: 'translateX(-150%) skewX(-20deg)' },
+                '100%': { transform: 'translateX(150%) skewX(-20deg)' },
+              }
             }
           }
         }
@@ -79,5 +93,7 @@
 </head>
   <body>
     <div id="root"></div>
+    <!-- 关键修复：引入应用入口文件 -->
+    <script type="module" src="./index.tsx"></script>
   </body>
 </html>
