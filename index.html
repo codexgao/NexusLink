@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NexusLink - 智能网址收藏</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            colors: {
+              background: 'rgb(var(--background) / <alpha-value>)',
+              surface: 'rgb(var(--surface) / <alpha-value>)',
+              primary: '#6366f1',    // indigo-500
+              secondary: '#10b981',  // emerald-500
+              accent: '#f472b6',     // pink-400
+            },
+            fontFamily: {
+              sans: ['Inter', 'system-ui', 'sans-serif'],
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      :root {
+        /* Light Mode Colors (Zinc-100 bg, White surface) */
+        --background: 244 244 245;
+        --surface: 255 255 255;
+        --scrollbar-track: 244 244 245;
+        --scrollbar-thumb: 212 212 216;
+      }
+
+      .dark {
+        /* Dark Mode Colors (Zinc-950 bg, Zinc-900 surface) */
+        --background: 9 9 11;
+        --surface: 24 24 27;
+        --scrollbar-track: 9 9 11;
+        --scrollbar-thumb: 39 39 42;
+      }
+
+      body {
+        background-color: rgb(var(--background));
+        color: rgb(var(--surface)); /* Base text color handled by utility classes mostly */
+        transition: background-color 0.3s ease, color 0.3s ease;
+      }
+
+      /* 自定义滚动条 */
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: rgb(var(--scrollbar-track));
+      }
+      ::-webkit-scrollbar-thumb {
+        background: rgb(var(--scrollbar-thumb));
+        border-radius: 4px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #a1a1aa; /* zinc-400 */
+      }
+      .dark ::-webkit-scrollbar-thumb:hover {
+        background: #3f3f46; /* zinc-700 */
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.1/",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.32.0",
+    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.556.0",
+    "react/": "https://aistudiocdn.com/react@^19.2.1/",
+    "react": "https://aistudiocdn.com/react@^19.2.1"
+  }
+}
+</script>
+</head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
